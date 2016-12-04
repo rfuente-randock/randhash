@@ -1,0 +1,11 @@
+{% block body %}
+    <div class="centered">
+        <span style="display: none">{{ exception.message }}</span>
+        <br><br>
+        <span>
+            <strong>{{ status_code }}</strong> {{ status_text }} - {{ exception.class|abbr_class }}
+        </span>
+        <br><br>
+        <a class="btn btn-default" href="#" onclick="history.back()">Back</a>
+    </div>
+{% endblock %}

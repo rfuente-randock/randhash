@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ hashTest.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ hashTest.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Hash</th>
+                <td>{{ hashTest.hash }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="buttons pull-right">
+        <li>
+            <a class="btn btn-default" href="{{ path('hashtest_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a class="btn btn-default" href="{{ path('hashtest_edit', { 'id': hashTest.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form, {'attr': {'onclick': 'return confirm("Are you sure?")'}}) }}
+                <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

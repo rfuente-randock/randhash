@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-default pull-right" type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul class="buttons pull-right">
+        <li>
+            {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn btn-default" href="{{ path('hashtest_index') }}">Back to the list</a>
+            {% endif %}
+            <a class="btn btn-default" href="/">Back to home</a>
+        </li>
+    </ul>
+{% endblock %}

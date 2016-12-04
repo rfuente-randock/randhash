@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <div id="welcome">
+                <h1><span>Randock Hash Test</span></h1>
+                <span>Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</span>
+            </div>
+            <br>
+            <div id="status">
+                <a href ="\hashtest\new">Add your name</a>
+                <br>
+                <a href ="\hashtest">Admin</a>
+                <br>
+                <a href ="\logout">Logout</a>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

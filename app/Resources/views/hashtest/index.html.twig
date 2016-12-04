@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Hash</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hashTest in hashTests %}
+            <tr>
+                <td>{{ hashTest.firstname }}</td>
+                <td>{{ hashTest.lastname }}</td>
+                <td>{{ hashTest.hash }}</td>
+                <td>
+                    <ul class="buttons">
+                        <li>
+                            <a class="btn btn-default" href="{{ path('hashtest_show', { 'id': hashTest.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-default" href="{{ path('hashtest_edit', { 'id': hashTest.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul class="buttons pull-right">
+        <li>
+            <a class="btn btn-default" href="{{ path('hashtest_new') }}">Create a new user</a>
+        </li>
+    </ul>
+{% endblock %}
