@@ -9,5 +9,4 @@ Instrucciones:
     var/cache
     var/log
     var/sessions
-- Configurar apache (adjunto archivo de configuración).
-
+- Configurar apache (apache_randock.conf).
