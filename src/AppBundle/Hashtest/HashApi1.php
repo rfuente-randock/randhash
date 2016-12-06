@@ -2,16 +2,19 @@
 
 namespace AppBundle\Hashtest;
 
-class Api implements ApiInterface
+class HashApi1 implements HashApiInterface
 {
     private $url = "https://api.randock.com/name/hash.json";
     private $user = "api";
     private $pss = "p.i.sgWJUqz6Y4[nB99bUGWgzceDeDUyZyLiLck9j>X?PBZcsD";
     private $firstname;
     private $lastname;
-    
-    
+
     public function __construct($data) {
+        $this->create($data);
+    }
+    
+    public function create($data) {
         $this->firstname = $data['firstname'];
         $this->lastname = $data['lastname'];
     }

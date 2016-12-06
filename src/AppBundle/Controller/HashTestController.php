@@ -3,8 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\HashTest;
-use AppBundle\Hashtest\ApiFactory;
-use AppBundle\Hashtest\ApiInterface;
+use AppBundle\Hashtest\HashApiClient;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -145,13 +144,12 @@ class HashTestController extends Controller
     }
     
     private function getHash($hashTest) {
-        $apiFactory = new ApiFactory(
+        $hashTest->setHash(HashApiClient::getHash(
             [
                 'firstname'=>$hashTest->getFirstname(), 
                 'lastname'=>$hashTest->getLastname()
             ]
-        );
-        $api = $apiFactory->getApi();
-        $hashTest->setHash($api->getHash());
+        ));
     }
+    
 }

@@ -2,7 +2,8 @@
 
 namespace AppBundle\Hashtest;
 
-interface ApiInterface
+interface HashApiInterface
 {
+    public function create($data);
     public function getHash();
 }
