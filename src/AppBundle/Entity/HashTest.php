@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Hashtest\HashtestApi;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**

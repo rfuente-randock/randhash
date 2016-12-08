@@ -8,3 +8,6 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
+    hashapi:
+        class:  AppBundle\Hashtest\HashApiClient
+        arguments: ['%api_username%', '%api_password%']

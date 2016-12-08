@@ -1,20 +1,21 @@
 @startuml
 
 class hashApiClient{
-    {static} getHash(data[] : String) : String
+    __construct(api_username, api_password)
+    getHash(data[]) : String
 }
 
 class hashApiFactory{
-    getHashApi(data[] : String, hashApiVersion : int) : hashApiInterface
+    {static} getHashApi(data[], api_config[]) : hashApiInterface
 }
 
 interface hashApiInterface{
-    create($data[] : String)
+    create($data[], api_config[])
     getHash() : String
 }
 
 class hashApi1 implements hashApiInterface{
-    create($data[] : String)
+    create($data[], api_config[])
     getHash() : String
 }
 

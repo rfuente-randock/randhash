@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\HashTest;
-use AppBundle\Hashtest\HashApiClient;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -144,12 +143,12 @@ class HashTestController extends Controller
     }
     
     private function getHash($hashTest) {
-        $hashTest->setHash(HashApiClient::getHash(
-            [
+        $hashTest->setHash(
+            $this->get('hashapi')->getHash([
                 'firstname'=>$hashTest->getFirstname(), 
                 'lastname'=>$hashTest->getLastname()
-            ]
-        ));
+            ])
+        );
     }
     
 }

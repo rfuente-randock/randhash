@@ -5,16 +5,18 @@ namespace AppBundle\Hashtest;
 class HashApi1 implements HashApiInterface
 {
     private $url = "https://api.randock.com/name/hash.json";
-    private $user = "api";
-    private $pss = "p.i.sgWJUqz6Y4[nB99bUGWgzceDeDUyZyLiLck9j>X?PBZcsD";
+    private $username;
+    private $password;
     private $firstname;
     private $lastname;
 
-    public function __construct($data) {
-        $this->create($data);
+    public function __construct($data, $api_config) {
+        $this->create($data, $api_config);
     }
     
-    public function create($data) {
+    public function create($data, $api_config) {
+        $this->username = $api_config['api_username'];
+        $this->password = $api_config['api_password'];
         $this->firstname = $data['firstname'];
         $this->lastname = $data['lastname'];
     }
@@ -26,7 +28,7 @@ class HashApi1 implements HashApiInterface
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HEADER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_USERPWD, $this->user . ":" . $this->pss);
+        curl_setopt($curl, CURLOPT_USERPWD, $this->username . ":" . $this->password);
         curl_setopt($curl, CURLOPT_HTTPHEADER, ["Content-type: application/json"]);
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
